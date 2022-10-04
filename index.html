@@ -9,36 +9,15 @@
   </head>
   <body>
     <div id="app">Loading...</div>
-    <template id="NotFound">
-      <h1>Bank App</h1>
-      <section>
-        <p>Page not found!</p>
-      </section>
-    </template>
+    <a href="/login" onclick="onLinkClick(event)">Login</a>
+
     <template id="login">
       <h1>Bank App</h1>
       <section>
-        <h2>Login</h2>
-        <form id="loginForm">
-          <label for="username">Username</label>
-          <input id="username" name="user" type="text" />
-          <button>Login</button>
-        </form>
-        <hr />
-        <h2>Register</h2>
-        <form id="registerForm">
-          <label for="user">Username</label>
-          <input id="user" name="user" type="text" />
-          <label for="currency">Currency</label>
-          <input id="currency" name="currency" type="text" value="$" />
-          <label for="description">Description</label>
-          <input id="description" name="description" type="text" />
-          <label for="balance">Current balance</label>
-          <input id="balance" name="balance" type="number" value="0" />
-          <button>Register</button>
-        </form>
+        <a href="/dashboard" onclick="onLinkClick(event)">Login</a>
       </section>
     </template>
+
     <template id="dashboard">
       <header>
         <h1>Bank App</h1>
@@ -59,5 +38,13 @@
         </table>
       </section>
     </template>
+
+    <template id="404">
+        <h1>Bank App - Page not found</h1>
+        <section>
+          <a href="/login" onclick="onLinkClick(event)">Home</a>
+        </section>
+    </template>
+
   </body>
 </html>
