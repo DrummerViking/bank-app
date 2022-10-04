@@ -24,6 +24,5 @@ function updateRoute() {
     app.appendChild(view);
 }
 
-
 window.onpopstate = () => updateRoute();
 updateRoute();
