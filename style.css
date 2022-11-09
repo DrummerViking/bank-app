@@ -1,5 +1,11 @@
 ﻿body {
-    background-color: black;
+    background-color: rgb(111, 200, 248);
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: aliceblue;
+    text-align: center;
+}
+
+h2 {
+    color:black;
+    font-variant-caps: petite-caps;
 }
