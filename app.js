@@ -2,7 +2,7 @@
     '/': { templateId: 'login' },
     '/login': { templateId: 'login' },
     '/dashboard': { templateId: 'dashboard' },
-    '/notfound': { templateId: 'notFound' }
+    '/404': { templateId: '404' }
 };
 
 function updateRoute() {
@@ -10,7 +10,7 @@ function updateRoute() {
     const route = routes[path];
 
     if (!route) {
-        return navigate('/notfound');
+        return navigate('/404');
     }
 
     const template = document.getElementById(route.templateId);
@@ -33,20 +33,6 @@ function onLinkClick(event) {
 window.onpopstate = () => updateRoute();
 updateRoute();
 
-async function register() {
-    const registerForm = document.getElementById('registerForm');
-    const formData = new FormData(registerForm);
-    const data = Object.fromEntries(formData);
-    const jsonData = JSON.stringify(data);
-    const result = await createAccount(jsonData);
-
-    if (result.error) {
-        return console.log('An error occurred:', result.error);
-    }
-
-    console.log('Account created!', result);
-}
-
 async function createAccount(account) {
     try {
         const response = await fetch('//localhost:5000/api/accounts', {
@@ -58,4 +44,19 @@ async function createAccount(account) {
     } catch (error) {
         return { error: error.message || 'Unknown error' };
     }
+}
+
+async function register() {
+    const registerForm = document.getElementById('registerForm');
+    const formData = new FormData(registerForm);
+    const data = Object.fromEntries(formData);
+    const jsonData = JSON.stringify(data);
+
+    const result = await createAccount(jsonData);
+
+    if (result.error) {
+        return console.log('An error occurred:', result.error);
+    }
+
+    console.log('Account created!', result);
 }
